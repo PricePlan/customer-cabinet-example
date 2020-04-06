@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Пример интеграции кабинета клиента PricePlan</title>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>PricePlan</h1>
+      <h2>Пример интеграции кабинета клиента</h2>
+      <div>
+        <p>
+          ID клиента: <b>{{ client_id }}</b>
+        </p>
+        <p>
+          ID ползователя клиента: <b>{{ user_id }}</b>
+        </p>
+      </div>
+
+      <iframe src="{{ iframe_src }}" width="800" height="600" align="left">
+          &nbsp;
+      </iframe>
+
+    </div>
+  </body>
+</html>
