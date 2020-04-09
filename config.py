@@ -13,6 +13,7 @@ SERVICE_PASSWORD = <service_password>
 CLIENT_ID = <cid>
 USER_ID = <uid>
 
+PERSONAL_AREA_PREFIX = '/pa'
 
 PP_DOMAIN = 'priceplan.pro'
 PP_URL = f'https://{CUSTOMER}-lk.{PP_DOMAIN}'
