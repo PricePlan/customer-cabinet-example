@@ -18,15 +18,17 @@
         </p>
       </div>
 
+      <!-- Добавьте iframe на вашу старницу -->
       <iframe id="pp" src="{{ iframe_src }}" width="100%" scrolling="no">
       </iframe>
 
     </div>
 
+    <!-- Эти скрипты следует добавить исключительно для удобства использования -->
     <script src="{{ prefix }}/js/iframeResizer.min.js"></script>
     <script>
       iFrameResize({
-        log: true,
+        log: true,  // В продуктовом окружении заменить на false
         warningTimeout: 15000,
         checkOrigin: false
       });
