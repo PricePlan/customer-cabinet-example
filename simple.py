@@ -16,21 +16,23 @@ except ImportError:
 
 logging.basicConfig(level=logging.DEBUG)
 LOG = logging.getLogger('simple')
+PATH_REDIRECT_TO = f'{config.PERSONAL_AREA_PREFIX}/redirect-to-pp'
 routes = web.RouteTableDef()
 
 
-@routes.get('/')
+@routes.get(config.PERSONAL_AREA_PREFIX)
 @aiohttp_jinja2.template('main.jinja2')
 async def main(request):
     """Handle main example page."""
     return {
         'client_id': config.CLIENT_ID,
         'user_id': config.USER_ID,
-        'iframe_src': '/redirect-to-pp'
+        'iframe_src': PATH_REDIRECT_TO,
+        'prefix': config.PERSONAL_AREA_PREFIX
     }
 
 
-@routes.get('/redirect-to-pp')
+@routes.get(PATH_REDIRECT_TO)
 async def redirect(request):
     """Return redirect to PricePlan token-authentication resource."""
     async with aiohttp.ClientSession() as session:
@@ -51,6 +53,7 @@ async def redirect(request):
                     location=f'{config.PP_URL}/auth-key/{token}/')
 
 
+routes.static(f'{config.PERSONAL_AREA_PREFIX}/js', config.BASE_DIR)
 app = web.Application()
 aiohttp_jinja2.setup(
     app,

@@ -18,10 +18,19 @@
         </p>
       </div>
 
-      <iframe src="{{ iframe_src }}" width="800" height="600" align="left">
-          &nbsp;
+      <iframe id="pp" src="{{ iframe_src }}" width="100%" scrolling="no">
       </iframe>
 
     </div>
+
+    <script src="{{ prefix }}/js/iframeResizer.min.js"></script>
+    <script>
+      iFrameResize({
+        log: true,
+        warningTimeout: 15000,
+        checkOrigin: false
+      });
+    </script>
+
   </body>
 </html>
